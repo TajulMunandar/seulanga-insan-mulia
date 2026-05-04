@@ -471,33 +471,47 @@
             <!-- Alert Message -->
             <div id="alert" class="alert"></div>
 
+            <!-- Alert Messages -->
+            @if(session('error'))
+                <div class="alert alert-error show">{{ session('error') }}</div>
+            @endif
+            @if(session('success'))
+                <div class="alert alert-success show">{{ session('success') }}</div>
+            @endif
+
             <!-- Login Form -->
-            <form class="login-form" id="loginForm">
+            <form class="login-form" method="POST" action="{{ route('login') }}">
+                @csrf
                 <div class="form-group">
                     <label class="form-label" for="email">Email</label>
-                    <input type="email" id="email" class="form-input" placeholder="nama@email.com" required>
+                    <input type="email" id="email" name="email" class="form-input" placeholder="nama@email.com" value="{{ old('email') }}" required>
+                    @error('email')
+                        <div class="text-red-500 text-sm mt-1">{{ $message }}</div>
+                    @enderror
                 </div>
 
                 <div class="form-group">
                     <label class="form-label" for="password">Password</label>
                     <div class="password-container">
-                        <input type="password" id="password" class="form-input" placeholder="Masukkan password"
-                            required>
+                        <input type="password" id="password" name="password" class="form-input" placeholder="Masukkan password" required>
                         <button type="button" class="toggle-password" id="togglePassword">
                             👁️
                         </button>
                     </div>
+                    @error('password')
+                        <div class="text-red-500 text-sm mt-1">{{ $message }}</div>
+                    @enderror
                 </div>
 
                 <div class="form-options">
                     <div class="remember-me">
-                        <input type="checkbox" id="remember">
+                        <input type="checkbox" id="remember" name="remember">
                         <label for="remember">Ingat saya</label>
                     </div>
                     <a href="#" class="forgot-password">Lupa password?</a>
                 </div>
 
-                <button type="submit" class="login-button" id="loginButton">
+                <button type="submit" class="login-button">
                     <span class="button-text">Masuk</span>
                     <div class="spinner"></div>
                 </button>

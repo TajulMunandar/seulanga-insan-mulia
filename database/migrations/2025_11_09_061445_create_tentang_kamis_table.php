@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('tentang_kamis', function (Blueprint $table) {
             $table->id();
+            $table->text('deskripsi');
+            $table->text('visi')->nullable();
+            $table->text('misi')->nullable();
+            $table->text('sejarah')->nullable();
             $table->timestamps();
         });
     }

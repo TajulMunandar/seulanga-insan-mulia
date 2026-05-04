@@ -9,4 +9,11 @@ class TentangKami extends Model
 {
     /** @use HasFactory<\Database\Factories\TentangKamiFactory> */
     use HasFactory;
+
+    protected $fillable = [
+        'deskripsi',
+        'visi',
+        'misi',
+        'sejarah',
+    ];
 }

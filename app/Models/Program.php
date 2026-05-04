@@ -9,4 +9,11 @@ class Program extends Model
 {
     /** @use HasFactory<\Database\Factories\ProgramFactory> */
     use HasFactory;
+
+    protected $fillable = [
+        'nama',
+        'deskripsi',
+        'gambar',
+        'urutan',
+    ];
 }

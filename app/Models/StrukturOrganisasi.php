@@ -9,4 +9,12 @@ class StrukturOrganisasi extends Model
 {
     /** @use HasFactory<\Database\Factories\StrukturOrganisasiFactory> */
     use HasFactory;
+
+    protected $fillable = [
+        'nama',
+        'jabatan',
+        'foto',
+        'deskripsi',
+        'urutan',
+    ];
 }

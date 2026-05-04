@@ -9,4 +9,10 @@ class Galeri extends Model
 {
     /** @use HasFactory<\Database\Factories\GaleriFactory> */
     use HasFactory;
+
+    protected $fillable = [
+        'gambar',
+        'deskripsi',
+        'alt_text',
+    ];
 }
